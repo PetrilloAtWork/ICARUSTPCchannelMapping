@@ -1,0 +1,15 @@
+ICARUSTPCchannelMapping.pdf
+.DS_Store
+*~
+*.aux
+*.bbl
+*.blg
+*.log
+*.out
+*.toc
+*.end
+*.gz
+
+# latexmk stuff:
+*.fdb_latexmk
+*.fls
