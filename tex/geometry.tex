@@ -3,13 +3,92 @@
 
 In this section we describe the relevant components of the detector and their relations.
 
-The detector is made of two modules
+The detector is made of two identical modules
+identified by their relative geographic location
+as \emph{East} (\Module{E}) and \emph{West} (\Module{W}) module (\cref{fig:chimneys}).
+As a reminder, the orientation is such that the Booster Neutrino Beam impinges
+upon the detector from the south side.
 
-\begin{figure}[p]
-  \centering{\includegraphics[width=0.90\textheight,angle=270]{figures/Icarus_chimneys}}
+\begin{figure}[bt] % [p]
+%   \centering{\includegraphics[width=0.90\textheight,angle=270]{figures/Icarus_chimneys}}
+  \includegraphics[width=\textwidth]{figures/ChimneyMap}
   \caption{
-    Disposition of the chimneys and holes on the top of ICARUS detectors (from~\cite{SBNDocDBxxxx:ConnTest}).
-    Only the columns of 20 chimneys are relevant to TPC readout.
+    Disposition of the chimneys on the top of ICARUS detectors (from~\cite{SBNDocDB14316}; see also~\cite{SBNDocDBxxxx:ConnTest}).
     \label{fig:chimneys}
   }
 \end{figure}
+
+In the following text we'll describe module \Module{E},
+with the understanding that the same considerations apply to module \Module{W} as well.
+
+
+\subsection{TPC wires}
+\label{ssec:geometry:wires}
+
+The module internally presents the vertical cathode in the middle, shared by
+the two TPC, \TPC{EW} and \TPC{EE}.
+The frame of the anodes pin the TPC wires on three different planes.
+As shown in \cref{fig:WirePlanesInTPC}, the most internal of the planes,
+the \emph{first induction plane}, has horizontal wires crossing the anode frame.
+These wires are actually about \meter{9} long, with one end fixed at the middle
+of the frame and the other end fixed to one of the vertical short sides of the anode frame.
+We can label them as ``north wires'' or south wires
+according to the side of the anode frame they are connected to.
+These wires are connected via 68-pin cables to the top and middle flange
+of the closest end chimney.
+The cables have tag
+\CableTag{C} (\texttt{EE01} and \texttt{WE01}),
+\CableTag{D} (\texttt{EE20} and \texttt{WE20}),
+\CableTag{A} (\texttt{EW01} and \texttt{WW01})
+and
+\CableTag{B} (\texttt{EW20} and \texttt{WW20}).
+
+The other two planes have most of the wires fixed at the top and the bottom of the anode frame
+(\centim{365.8} long).
+These wires are connected to the 68-pin cables on the top side of the anode frame.
+Other wires are fixed at the top and at a side of the frame:
+these shorter wires are also connected to the cables on the top side of the anode frame.
+The cables from both these groups of wires lead to the single flange of the closest of the standard chimneys.
+Finally, the rest of the wires are fixed at the side and the bottom of the anode frame.
+The cable of these wires lead to the bottom flange of the closest end chimney.
+
+
+\subsection{Flanges}
+
+The flanges on the standard chimney each serve nine cables from the second induction plane
+and nine cables from the collection plane.
+The connectors are deployed in a $2 \times 9$ array (\cref{fig:FlangeConnections}).
+
+\begin{figure}
+  \includegraphics[width=\textwidth]{figures/TopFlangesAndMinicrate}
+  \caption{
+    Illustration of the connections on top of a flange on a standard chimney.
+    The orientation is set by the reference mark,
+    the yellow triangle on the bottom right,
+    which is pointing toward the side of the cathode
+    (\ie westward for \TPC{E} TPCs and eastward for \TPC{W} TPCs).
+    \label{fig:FlangeConnections}
+  }
+\end{figure}
+
+These cables may come with a \CableTag{V} or \CableTag{S} tag, depending on the TPC.
+Their cables are numbered from 1 to 18 (\eg \Cable{S13}):
+cables from 1 to 9 belong to the west-most plane, while the other belong to the east-most one.
+
+The top and middle flange on the end chimneys cover the first induction plane.
+
+
+
+\begin{figure}[p]
+  \centerline{\includegraphics[width=0.90\textheight,angle=90]{figures/Icarus_TPC_wp}}
+  \caption{
+    Wire planes in a cryostat and their disposition (from~\cite{SBNDocDBxxxx:ConnTest}).
+    Note the orientation of the wires, correct and contrasting with the erroneous one in~\cite{SBNDocDB1020}.
+    \label{fig:WirePlanesInTPC}
+  }
+\end{figure}
+
+
+
+
+

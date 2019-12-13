@@ -2,26 +2,165 @@
 \label{sec:glossary}
 
 \begin{description}
-  \item[Collection plane] is the wire plane farthest from the cathode,
+
+  \item[Anode frame]
+    the part of the TPC providing support to the three wire
+    planes. It is the interface between the TPC wires and the flat cables.
+
+  \item[Board]
+    usually refers to a \emph{readout board}.
+
+  \item[Cable]
+    usually refers to a 68-wire \emph{flat cable}.
+
+  \item[Cathode]
+    the part of the module set at high voltage ($75\,\textnormal{kV}$)
+    and shared by two TPC.
+
+  \item[Collection plane]
+    is the wire plane farthest from the cathode,
     with most of the wires read on top of the anode frame and a few read on one
-    of the anode frame sides.
-  \item[Cryostat] in \LArSoft terms, each of the liquid argon volumes, \ie the
+    of the anode frame sides. It has the highest bias voltage.
+
+  \item[Chimney]
+    the tube steel structure hosting the flanges. There are 20 chimneys assigned
+    to each TPC, and they are labeled with the module and TPC label plus a
+    sequence number from 1 to 20, e.g. \Chimney{EW04}. Chimneys number 1
+    (\Chimney{EE01}, \Chimney{EW01} etc.) are located in the south side of the
+    detector. Chimneys are categorized as ``standard'' (or ``short'')
+    ``end'' (or ``non-standard'', ``corner'', or ``tall'').
+
+  \item[Corner chimney]
+    the same as \emph{end chimney} (they are at the corners of a single module).
+
+  \item[Cryostat]
+    in \LArSoft terms, each of the liquid argon volumes, \ie the
     two modules.
-  \item[First induction plane] is the wire plane closest to the cathode,
+
+  \item[DBB] (\emph{Decoupling and Biasing Board})
+    a passive board attached
+    to the cold side of a flange, distributing the bias voltage to the wires
+    and conveying their signal to the readout boards. Each board can serve
+    64 TPC wires connected via two flat cables.
+
+  \item[End chimney]
+    any of the eight chimneys at the north and south borders of the detector:
+    \Chimney{EE01}, \Chimney{EW01}, \Chimney{WE01}, \Chimney{WW01} (all south side),
+    \Chimney{EE20}, \Chimney{EW20}, \Chimney{WE20} and \Chimney{WW20} (all north side).
+    They convey information collected from the side of the anode frame, that is
+    from all the wires on half of the first induction wire plane,
+    plus the short wires of one of the other wire planes.
+    To accommodate this, they include three flanges, the top and middle ones
+    serving the first induction plane and the bottom one serving the other plane.
+    These chimneys may be also called non-standard, corner or tall chimneys.
+
+  \item[First induction plane]
+    the wire plane closest to the cathode,
     with 9-meter long wires being read out on the sides of the anode frame.
-  \item[Flange] one of the 96 interfaces between cold and warm volumes
+    It has the lowest bias voltage among the wire planes.
+
+  \item[Flange]
+    one of the 96 interfaces between cold and warm volumes
     \emph{serving the TPC wire planes}
     (other flanges, \eg the ones serving the photomultipliers, are never
     considered in this document).
-  \item[Flat cable] each of the 68-wire twisted-pair cables connecting one side
+    Flanges are identified by their chimney label (\eg \Flange{EW04}), with the
+    addition of an additional tag for the ones on the end chimneys,
+    to denote the bottom flange (\texttt{EW01b}),
+    the middle one (\texttt{EW01m}) or the top one (\texttt{EW01t}).
+
+  \item[Flat cable]
+    each of the 68-wire twisted-pair cables connecting one side
     of the decoupling and biasing board to a group of 32 contiguous TPC wires
-    at the anode frame.
-  \item[Minicrate] metal crate hosting nine readout boards,
+    at the anode frame, each via a single twisted pair (two additional pairs are
+    not connected to any TPC wire). The most external of the 34 pairs connected
+    to a TPC wire is tagged as pair \#1, its wire is wrapped in red, and its
+    position is marked on the connector. The connectors present an array of
+    $34 \times 2$ pins, and each pair is connected to a $1 \times 2$ pair of
+    pins.
+
+  \item[Minicrate]
+    metal crate hosting nine readout boards,
     and installed on the warm side of each of the 96 flanges.
-  \item[Module] each of the two liquid argon tanks (``T300''), identified by
-    a relative geographic label \emph{East} and \emph{West}; sometimes it is
-    called \emph{cryostat}.
-  \item[Second induction plane] is the middle wire plane,
+    A few flanges are connected to 16 cables or less, and therefore have
+    less than nine operational readout boards.
+
+  \item[Module]
+    each of the two liquid argon tanks (``T300''), identified by
+    a relative geographic label \emph{East} (\Module{E}) and \emph{West}
+    (\Module{W}); sometimes it is called \emph{cryostat}.
+
+  \item[Non-standard chimney]
+    another name for \emph{end chimney}.
+    Out of 80 chimneys, 72 are short, which makes the remaining ones ``non-standard''.
+
+  \item[Readout board]
+    each of the boards hosting the TPC channel readout, including the ADC.
+    Each board is connected through a DBB to two flat cables, serving 64 channels.
+    Boards are numbered from \Board{0} to \Board{8}, with board \Board{8}
+    the one closest to the triangular mark on the flange (\cref{fig:FlangeConnections}).
+
+  \item[Second induction plane]
+    is the middle wire plane,
     with most of the wires read on top of the anode frame and a few read on one
     of the anode frame sides.
+    Its bias voltage is also intermediate between the other two planes.
+
+  \item[Short chimney]
+    another name for a \emph{standard chimney}. These chimneys are shorter
+    than the end ones because they host only one TPC flange each.
+
+  \item[Short wire]
+    any of the TPC wires on second induction and collection planes which are
+    fixed to one of the sides of the anode frame and as a consequence are
+    shorter than the wires fixed at top and bottom sides on the same plane
+    (which are about \meter{3.7} long).
+
+  \item[Slot]
+    the location of a readout board in a minicrate. Each crate has nine slots.
+    In previous tests, slots used to be numbered from 1 to 9, which now host
+    boards from 0 to 8 respectively.
+
+  \item[Standard chimney]
+    any of the chimneys hosting a single TPC flange (together with other flanges
+    for PMT, which are not relevant here). These flanges are all connected to
+    cables at the top of the anode frame, serving the second induction or the
+    collection planes. There are 72 of these chimneys,
+    numbered from 2 to 19 from south to north (\eg \Chimney{EE19} is the
+    standard chimney of TPC \TPC{EE} closest to the north side).
+
+  \item[Tall chimney]
+    another name for a \emph{end chimney}. These chimneys are taller than the
+    standard ones because they stack three TPC flanges each instead of just one.
+
+  \item{TPC}
+    (Time Projection Chamber) the volume delimited by a cathode and an
+    anode; there are two TPC in each module, and they share the cathode.
+    TPC are geographically identified by their position relative to the cathode,
+    as \emph{East} (``E'') and \emph{West} (``W''); to uniquely identify a TPC,
+    a label including also its module is used: TPC \TPC{EW} is the west TPC
+    belonging to the east module. Therefore the four TPC are labeled, from west
+    to east, \TPC{WW}, \TPC{WE}, \TPC{EW} and \TPC{EE}.
+
+  \item[TPC wire]
+    (sometimes just \emph{wire}) each of the conducting wires
+    crossing the anode and set at a certain bias voltage.
+    Each of the wires is connected to a readout channel via a flat cable and DBB.
+
+  \item[Twisted pair]
+    a pair of contiguous wires in a flat cable, twisted around
+    each other. Thirty-two of the pairs have one wire connected to a TPC wire,
+    and the other grounded at the DBB end providing some electric shielding.
+
+  \item[Wire plane]
+    (or just \emph{plane}) a set of TPC wires all with the same
+    orientation, lying on the same geometrical plane and sharing the same
+    electrical potential.
+    Depending on their position (and bias voltage), they are labeled first
+    induction, second induction and collection planes.
+
+  \item[Wire]
+    usually same as \emph{TPC wire}); according to the context,
+    it may also refer to one of the conductors of a flat cable.
+
 \end{description}
