@@ -57,17 +57,23 @@ The cable of these wires lead to the bottom flange of the closest end chimney.
 
 The flanges on the standard chimney each serve nine cables from the second induction plane
 and nine cables from the collection plane.
-The connectors are deployed in a $2 \times 9$ array (\cref{fig:FlangeConnections}).
+The connectors are deployed in a $9 \times 2$ array (\cref{fig:FlangeConnectionsStandard}).
 
 \begin{figure}
-  \includegraphics[width=\textwidth]{figures/TopFlangesAndMinicrate}
+  \begin{subfigure}{0.45\linewidth}
+    \includegraphics[width=\textwidth]{figures/ReadoutCrate-standard}
+    \label{fig:StandardMinicrate}
+  \end{subfigure}
+  \begin{subfigure}{0.55\linewidth}
+    \includegraphics[width=\textwidth]{figures/TopFlangesAndMinicrate}
+    \label{fig:FlangeConnectionsStandard}
+  \end{subfigure}
   \caption{
-    Illustration of the connections on top of a flange on a standard chimney.
+    Picture and illustration of the connections on top of a flange on a standard chimney.
     The orientation is set by the reference mark,
-    the yellow triangle on the bottom right,
+    the yellow triangle on the top right,
     which is pointing toward the side of the cathode
     (\ie westward for \TPC{E} TPCs and eastward for \TPC{W} TPCs).
-    \label{fig:FlangeConnections}
   }
 \end{figure}
 
@@ -75,7 +81,44 @@ These cables may come with a \CableTag{V} or \CableTag{S} tag, depending on the 
 Their cables are numbered from 1 to 18 (\eg \Cable{S13}):
 cables from 1 to 9 belong to the west-most plane, while the other belong to the east-most one.
 
-The top and middle flange on the end chimneys cover the first induction plane.
+The eight end chimneys are more varied, each one with three flanges.
+The top two flanges (``top'' and ``middle'') serve the first induction plane,
+while each of the bottom ones serves one of the other two planes.
+
+The minicrate on these flanges is indistinguishable from the ones on the standard chimneys,
+with the connectors still deployed in a $9 \times 2$ array
+(\cref{fig:FlangeConnectionsCorner})
+but with different connection patterns.
+
+\begin{figure}
+  \begin{subfigure}{0.50\linewidth}
+    \includegraphics[width=\textwidth]{figures/CornerFlangesAndMinicrate_upward}
+    \caption{Actual cable tags: \CableTag{A} (\Chimney{xW20}), \CableTag{C} (\Chimney{xE01}).}
+    \label{fig:FlangeConnectionsCorner_upward}
+  \end{subfigure}
+  \begin{subfigure}{0.50\linewidth}
+    \includegraphics[width=\textwidth]{figures/CornerFlangesAndMinicrate_downward}
+    \caption{Actual cable tags: \CableTag{B} (\Chimney{xW01}), \CableTag{D} (\Chimney{xE20}).}
+    \label{fig:FlangeConnectionsCorner_downward}
+  \end{subfigure}
+  \caption{
+    Illustration of the connections on top of a flange on a end chimney.
+    The orientation is set by the reference mark.
+    To the standing observer, half of the minicrates looks upside down.
+    The yellow triangle still points toward the side of the cathode
+    (\ie westward for \TPC{E} TPCs and eastward for \TPC{W} TPCs).
+  }
+  \label{fig:FlangeConnectionsCorner}
+\end{figure}
+
+The labelling looks different for end chimneys at different locations.
+To better understand their orientation,
+it is important to consider that the physical minicrate has one side
+(with fans and power supply connection) which is always oriented toward the border of its module (\ie toward the anode).
+Since on the two ends of the TPC the flanges are rotated by the right angle around the east-west direction ($x$ direction),
+one clockwise and the other counterclockwise,
+the effect is that to the standing observer they look one upside down respect to the other.
+Removing this effect, though, they are actually placed in the same way.
 
 
 
