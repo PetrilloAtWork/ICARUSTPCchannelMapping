@@ -84,6 +84,14 @@
     $34 \times 2$ pins, and each pair is connected to a $1 \times 2$ pair of
     pins.
 
+  \item[Ghost channel]
+    a channel that is not connected to a flat cable.
+    This happens in a few readout boards and DBB on the end chimneys:
+    one board for each bottom flange (connected to only 17 cables)
+    and one board another of the flanges of the end chimney which serve the
+    first induction plane, which have 33 cables split into 18 to one flange
+    and 15 in the other.
+  
   \item[Minicrate]
     metal crate hosting nine readout boards,
     and installed on the warm side of each of the 96 flanges.
@@ -103,8 +111,15 @@
     each of the boards hosting the TPC channel readout, including the ADC.
     Each board is connected through a DBB to two flat cables, serving 64 channels.
     Boards are numbered from \Board{0} to \Board{8}, with board \Board{8}
-    the one closest to the triangular mark on the flange (\cref{fig:FlangeConnections}).
+    the one closest to the triangular mark on the flange
+    (\cref{fig:FlangeConnectionsCorner}).
 
+  \item[Readout channel]
+    a channel in the readout board. All channels are connected to a DBB.
+    The channels not connected to a flat cable are \emph{ghost channels}.
+    The channels connected to a flat cable but not to a TPC wire are
+    \emph{wireless channels}.
+  
   \item[Second induction plane]
     is the middle wire plane,
     with most of the wires read on top of the anode frame and a few read on one
@@ -157,6 +172,13 @@
     each other. Thirty-two of the pairs have one wire connected to a TPC wire,
     and the other grounded at the DBB end providing some electric shielding.
 
+  \item[Wireless channel]
+    a non-ghost channel that is not connected to a TPC wire.
+    This happens at the corners of the second induction and collection planes
+    where the wires are short (bottom flanges in all the end chimneys, and all
+    flanges on chimneys number 2 and 19), where the 64 shorter wires are
+    actually not physically present.
+  
   \item[Wire plane]
     (or just \emph{plane}) a set of TPC wires all with the same
     orientation, lying on the same geometrical plane and sharing the same

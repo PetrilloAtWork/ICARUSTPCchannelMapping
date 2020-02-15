@@ -3,7 +3,7 @@
 
 % where the channel ID assignment in LArSoft is described
 LArSoft assigns a logical ID to each of the TPC readout channels\footnote{
-Historical reasons what LArSoft geometry calls wires
+For historical reasons, what LArSoft geometry calls wires
 (\texttt{geo::WireGeo}) is actually not matching a physical wire nor a readout
 channel. In the implementation of LArSoft geometry with the first induction
 plane wires correctly represented
@@ -45,17 +45,25 @@ TPC \TPC{WE} is \texttt{C:1 S:0} and TPC \TPC{WW} is \texttt{C:1 S:1}.
 A LArSoft readout plane (label \texttt{R}) is a group of channels on the same type of plane,
 completely contained in a single TPC set.
 Each can include one or more logical LArSoft wire planes.
-Two of the readout planes count 5600 channels each and cover a complete physical wire
-plane: \texttt{R:0} covers the collection plane (including planes numbered \texttt{P:2})
-and \texttt{R:1} covers the second induction plane (including planes numbered \texttt{P:1}).
+Two of the readout planes count 5728 channels each and cover a complete physical wire
+plane: \texttt{R:3} covers the collection plane (including planes numbered \texttt{P:2})
+and \texttt{R:2} covers the second induction plane (including planes numbered \texttt{P:1}).
 The other two readout planes include each half of the first induction plane (numbered \texttt{P:0}):
-\texttt{R:2} for the southern half (``Ind-1-S'', \texttt{T:$2n$ P:0})
-and \texttt{R:3} for the northern half (``Ind-1-N'', \texttt{T:$2n+1$ P:0}).
+\texttt{R:0} for the southern half (``Ind-1-S'', \texttt{T:$2n$ P:0})
+and \texttt{R:1} for the northern half (``Ind-1-N'', \texttt{T:$2n+1$ P:0}).
 
 Channels are numbered starting with the first TPC set (TPC set \TPC{C:0 S:0}),
-and starting with the readout plane farther from the cathode,
-that is the one with the collection plane, with preferential order first with
-increasing $z$ coordinate, and then with increasing $y$ coordinate.
+and starting with the readout plane closter to the cathode,
+that is the one with the first induction plane, with preferential order first
+with increasing $z$ coordinate, and then with increasing $y$ coordinate.
+The ``wireless'' channels belong to their respective readout plane:
+each second induction and collection readout plane starts with 64 wireless channels,
+counts then the regular 5600 channels, then ends with another 64 wireless channels,
+including overall 5278 channels.
+LArSoft wire planes, on the other end, do not include any wireless channel:
+wireless channels are associated only to LArSoft readout planes
+and not to LArSoft readout planes.
+
 This translates into the following mapping:
 \begin{center}
   \small
@@ -64,15 +72,15 @@ This translates into the following mapping:
     \hline
     Location            & LArSoft ROP          & channels     & Location            & LArSoft ROP          & channels     \\
     \hline
-    \texttt{EE} Coll    & \texttt{C:0 S:0 R:0} &     0--5599  & \texttt{WE} Coll    & \texttt{C:1 S:0 R:0} & 26624--32223 \\
-    \texttt{EE} Ind-2   & \texttt{C:0 S:0 R:1} &  5560--11199 & \texttt{WE} Ind-2   & \texttt{C:1 S:0 R:1} & 32224--37823 \\
-    \texttt{EE} Ind-1-S & \texttt{C:0 S:0 R:2} & 11200--12255 & \texttt{WE} Ind-1-S & \texttt{C:1 S:0 R:2} & 37824--38879 \\
-    \texttt{EE} Ind-1-N & \texttt{C:0 S:0 R:3} & 12256--13311 & \texttt{WE} Ind-1-N & \texttt{C:1 S:0 R:3} & 38880--39935 \\
+    \texttt{EE} Ind-1-S & \texttt{C:0 S:0 R:0} &     0-- 1055 & \texttt{WE} Ind-1-S & \texttt{C:1 S:0 R:0} & 27136--28191 \\
+    \texttt{EE} Ind-1-N & \texttt{C:0 S:0 R:1} &  1056-- 2111 & \texttt{WE} Ind-1-N & \texttt{C:1 S:0 R:1} & 28192--29247 \\
+    \texttt{EE} Ind-2   & \texttt{C:0 S:0 R:2} &  2112-- 7839 & \texttt{WE} Ind-2   & \texttt{C:1 S:0 R:2} & 29248--34975 \\
+    \texttt{EE} Coll    & \texttt{C:0 S:0 R:3} &  7840--13567 & \texttt{WE} Coll    & \texttt{C:1 S:0 R:3} & 34976--40703 \\
     \hline
-    \texttt{EW} Coll    & \texttt{C:0 S:1 R:0} & 13312--18911 & \texttt{WW} Coll    & \texttt{C:1 S:1 R:0} & 39936--45535 \\
-    \texttt{EW} Ind-2   & \texttt{C:0 S:1 R:1} & 18912--24511 & \texttt{WW} Ind-2   & \texttt{C:1 S:1 R:1} & 45536--51135 \\
-    \texttt{EW} Ind-1-S & \texttt{C:0 S:1 R:2} & 24512--25567 & \texttt{WW} Ind-1-S & \texttt{C:1 S:1 R:2} & 51136--52191 \\
-    \texttt{EW} Ind-1-N & \texttt{C:0 S:1 R:3} & 25568--26623 & \texttt{WW} Ind-1-N & \texttt{C:1 S:1 R:3} & 52192--53247 \\
+    \texttt{EW} Ind-1-S & \texttt{C:0 S:1 R:0} & 13568--14623 & \texttt{WW} Ind-1-S & \texttt{C:1 S:1 R:0} & 40704--41759 \\
+    \texttt{EW} Ind-1-N & \texttt{C:0 S:1 R:1} & 14624--15679 & \texttt{WW} Ind-1-N & \texttt{C:1 S:1 R:1} & 41760--42815 \\
+    \texttt{EW} Ind-2   & \texttt{C:0 S:1 R:2} & 15680--21407 & \texttt{WW} Ind-2   & \texttt{C:1 S:1 R:2} & 42816--48543 \\
+    \texttt{EW} Coll    & \texttt{C:0 S:1 R:3} & 21408--27135 & \texttt{WW} Coll    & \texttt{C:1 S:1 R:3} & 48544--54271 \\
     \hline
     \hline
   \end{tabular}
@@ -82,5 +90,9 @@ starts from south (negative $z$).
 For the first induction plane, channel numbering starts from the bottom instead
 (negative $y$ direction).
 
-
+LArSoft wire planes are traditionally numbered starting from the plane closest
+to the cathode, numbered as \texttt{P:0}.
+In this mapping, four readout planes are required grouping six wire planes:
+two readout planes contain two wire planes each (second induction and collection planes)
+and the other two contain one wire plane each.
 
