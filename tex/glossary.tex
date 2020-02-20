@@ -85,12 +85,12 @@
     pins.
 
   \item[Ghost channel]
-    a channel that is not connected to a flat cable.
+    a readout channel that is not connected to a flat cable.
     This happens in a few readout boards and DBB on the end chimneys:
     one board for each bottom flange (connected to only 17 cables)
-    and one board another of the flanges of the end chimney which serve the
-    first induction plane, which have 33 cables split into 18 to one flange
-    and 15 in the other.
+    and one board for each the top flange of the end chimney which serve the
+    first induction plane, whose eighth slot is connected to a flat cable only
+    by one of its two sides.
   
   \item[Minicrate]
     metal crate hosting nine readout boards,
@@ -118,7 +118,9 @@
     a channel in the readout board. All channels are connected to a DBB.
     The channels not connected to a flat cable are \emph{ghost channels}.
     The channels connected to a flat cable but not to a TPC wire are
-    \emph{wireless channels}.
+    \emph{wireless channels}. The definition of channel is stretched to include
+    non-entities, the \emph{virtual channels}, from minicrate slots that might
+    host readout boards but are actually empty.
   
   \item[Second induction plane]
     is the middle wire plane,
@@ -172,6 +174,11 @@
     each other. Thirty-two of the pairs have one wire connected to a TPC wire,
     and the other grounded at the DBB end providing some electric shielding.
 
+  \item[Virtual channel]
+    a channel that would arise from a readout board in a slot that is instead
+    empty. The top flange of each end chimney has an empty slot without readout
+    board, and therefore it has 64 virtual channels.
+  
   \item[Wireless channel]
     a non-ghost channel that is not connected to a TPC wire.
     This happens at the corners of the second induction and collection planes

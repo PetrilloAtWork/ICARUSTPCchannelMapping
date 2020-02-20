@@ -53,38 +53,109 @@ The other two readout planes include each half of the first induction plane (num
 and \texttt{R:1} for the northern half (``Ind-1-N'', \texttt{T:$2n+1$ P:0}).
 
 Channels are numbered starting with the first TPC set (TPC set \TPC{C:0 S:0}),
-and starting with the readout plane closter to the cathode,
+and starting with the readout plane closest to the cathode,
 that is the one with the first induction plane, with preferential order first
 with increasing $z$ coordinate, and then with increasing $y$ coordinate.
-The ``wireless'' channels belong to their respective readout plane:
-each second induction and collection readout plane starts with 64 wireless channels,
-counts then the regular 5600 channels, then ends with another 64 wireless channels,
-including overall 5278 channels.
+The ``wireless'' channels belong to their respective readout plane.
+LArSoft assigns ``ghost'' and ``virtual'' channels to a readout plane, too:
+that plane is the one the rest of the channels on the same flange belong to.
+
+The east second induction and the west collection readout planes start with 32 ghost channel,
+followed by 64 wireless channels, then by the regular 5600 channels,
+then end with another 64 wireless channels
+including overall 5760 channels from flanges from \Flange{xx01B} to \Flange{xx19}.
+The east collection  and west second induction readout planes start with 64 wireless channels,
+followed by the regular 5600 channels,
+then by with another 64 wireless channels, and then end with 32 ghost channel
+including overall 5760 channels from flanges from \Flange{xx02} to \Flange{xx20B}.
+Each of the north and south first induction demiplanes starts with 1056 channels
+followed by 32 ghost channels, and then end with 64 more virtual channels,
+summing up to 1152 channels in each demiplane.
+Note that there is a gap between the regular channel IDs in the south
+and north first induction planes.
+
 LArSoft wire planes, on the other end, do not include any wireless channel:
 wireless channels are associated only to LArSoft readout planes
 and not to LArSoft readout planes.
 
-This translates into the following mapping:
+This translates into the mapping in \cref{table:LArSoftChannels}, summarised also here:
 \begin{center}
-  \small
-  \begin{tabular}{|ccr||ccr|}
+  \begin{tabular}{|cc|rrc|r|}
     \hline
     \hline
-    Location            & LArSoft ROP          & channels     & Location            & LArSoft ROP          & channels     \\
+    Location            & LArSoft              & \multicolumn{3}{c|}{channels} & first regular \\
+                        & ROP                  &  from &    to & (count) &     (count)  \\
     \hline
-    \texttt{EE} Ind-1-S & \texttt{C:0 S:0 R:0} &     0-- 1055 & \texttt{WE} Ind-1-S & \texttt{C:1 S:0 R:0} & 27136--28191 \\
-    \texttt{EE} Ind-1-N & \texttt{C:0 S:0 R:1} &  1056-- 2111 & \texttt{WE} Ind-1-N & \texttt{C:1 S:0 R:1} & 28192--29247 \\
-    \texttt{EE} Ind-2   & \texttt{C:0 S:0 R:2} &  2112-- 7839 & \texttt{WE} Ind-2   & \texttt{C:1 S:0 R:2} & 29248--34975 \\
-    \texttt{EE} Coll    & \texttt{C:0 S:0 R:3} &  7840--13567 & \texttt{WE} Coll    & \texttt{C:1 S:0 R:3} & 34976--40703 \\
+    \texttt{EE} Ind-1-S & \texttt{C:0 S:0 R:0} &     0 &  1151 &  (1152) &     0 (1056) \\
+    \texttt{EE} Ind-1-N & \texttt{C:0 S:0 R:1} &  1152 &  2303 &  (1152) &  1152 (1056) \\
+    \texttt{EE} Ind-2   & \texttt{C:0 S:0 R:2} &  2304 &  8063 &  (5760) &  2400 (5600) \\
+    \texttt{EE} Coll    & \texttt{C:0 S:0 R:3} &  8064 & 13823 &  (5760) &  8128 (5600) \\
     \hline
-    \texttt{EW} Ind-1-S & \texttt{C:0 S:1 R:0} & 13568--14623 & \texttt{WW} Ind-1-S & \texttt{C:1 S:1 R:0} & 40704--41759 \\
-    \texttt{EW} Ind-1-N & \texttt{C:0 S:1 R:1} & 14624--15679 & \texttt{WW} Ind-1-N & \texttt{C:1 S:1 R:1} & 41760--42815 \\
-    \texttt{EW} Ind-2   & \texttt{C:0 S:1 R:2} & 15680--21407 & \texttt{WW} Ind-2   & \texttt{C:1 S:1 R:2} & 42816--48543 \\
-    \texttt{EW} Coll    & \texttt{C:0 S:1 R:3} & 21408--27135 & \texttt{WW} Coll    & \texttt{C:1 S:1 R:3} & 48544--54271 \\
+    \texttt{EW} Ind-1-S & \texttt{C:0 S:1 R:0} & 13824 & 14975 &  (1152) & 13824 (1056) \\
+    \texttt{EW} Ind-1-N & \texttt{C:0 S:1 R:1} & 14976 & 16127 &  (1152) & 14976 (1056) \\
+    \texttt{EW} Ind-2   & \texttt{C:0 S:1 R:2} & 16128 & 21887 &  (5760) & 16192 (5600) \\
+    \texttt{EW} Coll    & \texttt{C:0 S:1 R:3} & 21888 & 27647 &  (5760) & 21984 (5600) \\
+    \hline
+    \hline
+    \texttt{WE} Ind-1-S & \texttt{C:1 S:0 R:0} & 27648 & 28799 &  (1152) & 27648 (1056) \\
+    \texttt{WE} Ind-1-N & \texttt{C:1 S:0 R:1} & 28800 & 29951 &  (1152) & 28800 (1056) \\
+    \texttt{WE} Ind-2   & \texttt{C:1 S:0 R:2} & 29952 & 35711 &  (5760) & 30016 (5600) \\
+    \texttt{WE} Coll    & \texttt{C:1 S:0 R:3} & 35712 & 41471 &  (5760) & 35808 (5600) \\
+    \hline
+    \texttt{WW} Ind-1-S & \texttt{C:1 S:1 R:0} & 41472 & 42623 &  (1152) & 41472 (1056) \\
+    \texttt{WW} Ind-1-N & \texttt{C:1 S:1 R:1} & 42624 & 43775 &  (1152) & 42624 (1056) \\
+    \texttt{WW} Ind-2   & \texttt{C:1 S:1 R:2} & 43776 & 49535 &  (5760) & 43840 (5600) \\
+    \texttt{WW} Coll    & \texttt{C:1 S:1 R:3} & 49536 & 55295 &  (5760) & 49632 (5600) \\
     \hline
     \hline
   \end{tabular}
+  \label{tab:LArSoftChannelsReduced}
 \end{center}
+
+\begin{sidewaystable}
+  \begin{tabular}{|cc|cc|rrrrrr|}
+    \hline
+    \hline
+    Location            & LArSoft              & \multicolumn{2}{c|}{channels} & \multicolumn{6}{c|}{first channel (and count)}                        \\
+                        & ROP                  & \multicolumn{1}{c}{range}
+                                                              & count  & \multicolumn{1}{c}{ghost}
+                                                                                    & \multicolumn{1}{c}{wireless}
+                                                                                                 & \multicolumn{1}{c}{wired}
+                                                                                                                & \multicolumn{1}{c}{wireless}
+                                                                                                                             & \multicolumn{1}{c}{ghost}
+                                                                                                                                          & \multicolumn{1}{c|}{virtual}
+                                                                                                                                                       \\
+%   Location            & LArSoft ROP          & range        & count  & ghost      & wireless   & wired        & wireless   & ghost      & virtual    \\
+    \hline
+    \texttt{EE} Ind-1-S & \texttt{C:0 S:0 R:0} &     0--1151  & (1152) &            &            &     0 (1056) &            &  1056 (32) &  1088 (64) \\
+    \texttt{EE} Ind-1-N & \texttt{C:0 S:0 R:1} &  1152--2303  & (1152) &            &            &  1152 (1056) &            &  2208 (32) &  2240 (64) \\
+    \texttt{EE} Ind-2   & \texttt{C:0 S:0 R:2} &  2304--8063  & (5760) &  2304 (32) &  2336 (64) &  2400 (5600) &  8000 (64) &            &            \\
+    \texttt{EE} Coll    & \texttt{C:0 S:0 R:3} &  8064--13823 & (5760) &            &  8064 (64) &  8128 (5600) & 13728 (64) & 13792 (32) &            \\
+    \hline
+    \texttt{EW} Ind-1-S & \texttt{C:0 S:1 R:0} & 13824--14975 & (1152) &            &            & 13824 (1056) &            & 14880 (32) & 14912 (64) \\
+    \texttt{EW} Ind-1-N & \texttt{C:0 S:1 R:1} & 14976--16127 & (1152) &            &            & 14976 (1056) &            & 16032 (32) & 16064 (64) \\
+    \texttt{EW} Ind-2   & \texttt{C:0 S:1 R:2} & 16128--21887 & (5760) &            & 16128 (64) & 16192 (5600) & 21792 (64) & 21856 (32) &            \\
+    \texttt{EW} Coll    & \texttt{C:0 S:1 R:3} & 21888--27647 & (5760) & 21888 (32) & 21920 (64) & 21984 (5600) & 27584 (64) &            &            \\
+    \hline
+    \hline
+    \texttt{WE} Ind-1-S & \texttt{C:1 S:0 R:0} & 27648--28799 & (1152) &            &            & 27648 (1056) &            & 28704 (32) & 28736 (64) \\
+    \texttt{WE} Ind-1-N & \texttt{C:1 S:0 R:1} & 28800--29951 & (1152) &            &            & 28800 (1056) &            & 29856 (32) & 29888 (64) \\
+    \texttt{WE} Ind-2   & \texttt{C:1 S:0 R:2} & 29952--35711 & (5760) &            & 29952 (64) & 30016 (5600) & 35616 (64) & 35680 (32) &            \\
+    \texttt{WE} Coll    & \texttt{C:1 S:0 R:3} & 35712--41471 & (5760) & 35712 (32) & 35744 (64) & 35808 (5600) & 41408 (64) &            &            \\
+    \hline
+    \texttt{WW} Ind-1-S & \texttt{C:1 S:1 R:0} & 41472--42623 & (1152) &            &            & 41472 (1056) &            & 42528 (32) & 42560 (64) \\
+    \texttt{WW} Ind-1-N & \texttt{C:1 S:1 R:1} & 42624--43775 & (1152) &            &            & 42624 (1056) &            & 43680 (32) & 43712 (64) \\
+    \texttt{WW} Ind-2   & \texttt{C:1 S:1 R:2} & 43776--49535 & (5760) &            & 43776 (64) & 43840 (5600) & 49440 (64) & 49504 (32) &            \\
+    \texttt{WW} Coll    & \texttt{C:1 S:1 R:3} & 49536--55295 & (5760) & 49536 (32) & 49568 (64) & 49632 (5600) & 55232 (64) &            &            \\
+    \hline
+    \hline
+  \end{tabular}
+  \caption{
+    Assignment of channel IDs to LArSoft readout planes.
+    \label{table:LArSoftChannels}
+  }
+\end{sidewaystable}
+
 In the collection and second induction planes channel numbering within the plane
 starts from south (negative $z$).
 For the first induction plane, channel numbering starts from the bottom instead
@@ -95,4 +166,5 @@ to the cathode, numbered as \texttt{P:0}.
 In this mapping, four readout planes are required grouping six wire planes:
 two readout planes contain two wire planes each (second induction and collection planes)
 and the other two contain one wire plane each.
+
 
