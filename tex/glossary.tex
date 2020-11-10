@@ -17,6 +17,15 @@
     the part of the module set at high voltage ($75\,\textnormal{kV}$)
     and shared by two TPC.
 
+  \item[Channel]
+    a gateway to confusion. It refers to a \emph{readout channel},
+    which can be identified according to two completely different systems:
+    a \hyperlink{glossary:LArSoftChannelID}{\emph{LArSoft channel identifier}},
+    which is unique in the detector (\texttt{0}-\texttt{55295}),
+    and a \hyperlink{glossary:ReadoutChannelNumber}{\emph{readout channel number}}
+    within a readout board,
+    which is unique only within its readout board (\texttt{0}-\texttt{63}).
+  
   \item[Chimney]
     the tube steel structure hosting the flanges. There are 20 chimneys assigned
     to each TPC, and they are labeled with the module and TPC label plus a
@@ -92,7 +101,12 @@
     first induction plane, whose eighth slot is connected to a flat cable only
     by one of its two sides.
   
-  \item[Minicrate]
+  \item[\hypertarget{glossary:LArSoftChannelID}{LArSoft channel identifier}]
+    (also referred to as \emph{channel} or \emph{channel ID}, both ambiguous)
+    identifies a TPC readout channel uniquely in the whole detector
+    (\texttt{0}-\texttt{55295}).
+  
+  \item[\hypertarget{glossary:minicrate}{Minicrate}]
     metal crate hosting nine readout boards,
     and installed on the warm side of each of the 96 flanges.
     A few flanges are connected to 16 cables or less, and therefore have
@@ -114,6 +128,11 @@
     the one closest to the triangular mark on the flange
     (\cref{fig:FlangeConnectionsCorner}).
 
+  \item[\hypertarget{glossary:ReadoutChannelNumber}{Readout board channel number}]
+    (also referred to as \emph{channel} or \emph{channel number}, both ambiguous)
+    identifies a TPC readout channel within its own readout board
+    (\texttt{0}-\texttt{63}).
+  
   \item[Readout channel]
     a channel in the readout board. All channels are connected to a DBB.
     The channels not connected to a flat cable are \emph{ghost channels}.

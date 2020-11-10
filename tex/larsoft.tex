@@ -1,6 +1,8 @@
 \section{Readout channels in LArSoft}
 \label{sec:LArSoft}
 
+% [20201109] LArSoft mapping has been verified by petrillo@slac.stanford.edu on icarusalg v09_09_01
+
 % where the channel ID assignment in LArSoft is described
 LArSoft assigns a logical ID to each of the TPC readout channels\footnote{
 For historical reasons, what LArSoft geometry calls wires
@@ -68,9 +70,9 @@ The east collection  and west second induction readout planes start with 64 wire
 followed by the regular 5600 channels,
 then by with another 64 wireless channels, and then end with 32 ghost channel
 including overall 5760 channels from flanges from \Flange{xx02} to \Flange{xx20B}.
-Each of the north and south first induction demiplanes starts with 1056 channels
+Each of the north and south first induction half-planes starts with 1056 channels
 followed by 32 ghost channels, and then end with 64 more virtual channels,
-summing up to 1152 channels in each demiplane.
+summing up to 1152 channels in each half-plane.
 Note that there is a gap between the regular channel IDs in the south
 and north first induction planes.
 

@@ -27,12 +27,13 @@ with the understanding that the same considerations apply to module \Module{W} a
 
 The module internally presents the vertical cathode in the middle, shared by
 the two TPC, \TPC{EW} and \TPC{EE}.
-The frame of the anodes pin the TPC wires on three different planes.
+The frame of the anodes pins the TPC wires on three different planes.
 As shown in \cref{fig:WirePlanesInTPC}, the most internal of the planes,
 the \emph{first induction plane}, has horizontal wires crossing the anode frame.
-These wires are actually about \meter{9} long, with one end fixed at the middle
-of the frame and the other end fixed to one of the vertical short sides of the anode frame.
-We can label them as ``north wires'' or south wires
+These wires are actually about \meter{9} long,
+with one end soldered to one of the vertical short sides of the anode frame
+and the other end pinned in the middle of the frame.
+We can label them as ``north wires'' or ``south wires''
 according to the side of the anode frame they are connected to.
 These wires are connected via 68-pin flat cables to the top and middle flange
 of the closest end chimney.
@@ -43,14 +44,15 @@ The cables have tag
 and
 \CableTag{B} (\texttt{EW20} and \texttt{WW20}).
 
-The other two planes have most of the wires fixed at the top and the bottom of the anode frame
+The other two planes have most of the wires soldered at the top and the bottom of the anode frame
 (\centim{365.8} long).
 These wires are connected to the 68-pin cables on the top side of the anode frame.
-Other wires are fixed at the top and at a side of the frame:
+Other wires are soldered at the top and at a side of the frame:
 these shorter wires are also connected to the cables on the top side of the anode frame.
 The cables from both these groups of wires lead to the single flange of the closest of the standard chimneys.
-Finally, the rest of the wires are fixed at the side and the bottom of the anode frame.
-The cable of these wires lead to the bottom flange of the closest end chimney.
+Finally, the rest of the wires are soldered at the side and the bottom of the anode frame.
+The cables of these wires, attached to the side of the frame,
+lead to the bottom flange of the closest end chimney.
 
 There are two relevant exceptions to this pattern.
 Since each plane turns out to have an odd number of 68-pin cables,
@@ -71,18 +73,21 @@ each corner, 128 on each of those planes.
 
 \subsection{Flanges}
 
-The flanges on the standard chimney each serve nine cables from the second induction plane
+Each of the flanges on the standard chimneys serves
+nine cables from the second induction plane
 and nine cables from the collection plane.
-The connectors are deployed in a $9 \times 2$ array (\cref{fig:FlangeConnectionsStandard}).
+The connectors are deployed in a $9 \times 2$ array (\cref{fig:FlangeStandard}).
 
 \begin{figure}
+  % we haven't assigned captions and labels to the subfigures,
+  % so it does not make sense to reference them directly
   \begin{subfigure}{0.45\linewidth}
     \includegraphics[width=\textwidth]{figures/ReadoutCrate-standard}
-    \label{fig:StandardMinicrate}
+%     \label{fig:StandardMinicrate}
   \end{subfigure}
   \begin{subfigure}{0.55\linewidth}
     \includegraphics[width=\textwidth]{figures/TopFlangesAndMinicrate}
-    \label{fig:FlangeConnectionsStandard}
+%     \label{fig:FlangeConnectionsStandard}
   \end{subfigure}
   \caption{
     Picture and illustration of the connections on top of a flange on a standard chimney.
@@ -91,6 +96,7 @@ The connectors are deployed in a $9 \times 2$ array (\cref{fig:FlangeConnections
     which is pointing toward the side of the cathode
     (\ie westward for \TPC{E} TPCs and eastward for \TPC{W} TPCs).
   }
+  \label{fig:FlangeStandard}
 \end{figure}
 
 These cables may come with a \CableTag{V} or \CableTag{S} tag, depending on the TPC.
@@ -101,7 +107,7 @@ The eight end chimneys are more varied, each one with three flanges.
 The top two flanges (``top'' and ``middle'') serve the first induction plane,
 while each of the bottom ones serves one of the other two planes.
 
-The minicrate on these flanges is indistinguishable from the ones on the standard chimneys,
+The minicrates on these flanges are identical to the ones on the standard chimneys,
 with the connectors still deployed in a $9 \times 2$ array
 (\cref{fig:FlangeConnectionsCorner})
 but with different connection patterns.
@@ -120,7 +126,8 @@ but with different connection patterns.
   \caption{
     Illustration of the connections on top of a flange on a end chimney.
     The orientation is set by the reference mark.
-    To the standing observer, half of the minicrates looks upside down.
+    To the observer standing in front of the chimney,
+    the minicrates of half the chimneys look upside down.
     The yellow triangle still points toward the side of the cathode
     (\ie westward for \TPC{E} TPCs and eastward for \TPC{W} TPCs).
   }

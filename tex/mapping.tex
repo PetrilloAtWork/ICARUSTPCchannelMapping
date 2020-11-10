@@ -2,3 +2,41 @@
 \label{sec:mapping}
 
 % where the actual mapping is deduced and written down
+
+A mapping between readout identifiers and LArSoft identifiers is necessary
+to correctly decode and interpret TPC data.
+
+TPC data is the union of different data \emph{fragments},
+each collecting data from a limited number of readout boards.
+ICARUS data acquisition allows for one or two fragments per minicrate
+(in the latter case, one fragment covers four boards, the other one covers five).
+At the time of writing, one fragment per minicrate is used.
+
+The identifiers on the readout side include:
+\begin{description}
+  \item[fragment] is associated to an identifier and its location
+    (\hyperlink{glossary:minicrate}{minicrate}) is known;
+  \item[readout board] counted within the same minicrate (\texttt{1} to \texttt{9})
+    in the order illustrated in \cref{fig:FlangeStandard,fig:FlangeConnectionsCorner};
+  \item[channel] within the board (\texttt{0} to \texttt{63};
+    in this note, we call it with the friendly name 
+    \hyperlink{glossary:ReadoutChannelNumber}{readout board channel number})
+\end{description}
+A TPC waveform associated to a fragment, board and channel number
+is univocally located in the detector.
+
+The mapping from the combination of fragment ID, readout board and channel number
+to LArSoft channel ID is stored in a table of ICARUS hardware database.
+% TODO add reference
+The database also associate each fragment to a physical location (minicrate),
+hence allowing the determination of the location of all the readout channels.
+
+
+% TODO describe the hardware channel mapping:
+% * define the channel number (e.g. 0 and 32) relative to the minicrate reference
+% * relate each TPC plane to a chimney side (channels 0-31 or 32-63)
+% * relate the order of the cable number to the order of the channel ID
+%     * for the standard chimneys
+%     * for the bottom flange of the corner chimneys
+%     * for the middle and top flanges of the corner chimneys
+% * relate the top and middle flanges of the corner chimneys with channel ID ranges
