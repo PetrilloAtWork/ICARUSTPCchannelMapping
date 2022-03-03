@@ -28,19 +28,24 @@ This information was provided by Angela Fava:
 
 \subsection{Assignment of wire planes to minicrate sides}
 \label{ssec:PlaneAssignment}
-
-This information is extracted from a technical note~\cite{SBNDocDBxxxx:ConnTest} describing the TPC connectivity test:
+The assignment of wire planes to minicrate sides is somehow problematic. According to the cabling schemes in the  CERN EDMS documents \cite{EDMS1531207v1}, provided by A.~Fava and A.~Zani, this assignment is the same for all TPCs:
 \begin{itemize}
-  \item in chimneys on west TPC (\TPC{WW} and \TPC{EW}):
-    \begin{itemize}
-      \item flat cables from 1 to 9 are connected to wires on the \emph{collection plane}
+     \item flat cables from 1 to 9 are connected to wires on the \emph{collection plane}
       \item flat cables from 10 to 18 are connected to wires on the \emph{second induction plane}
-    \end{itemize}
-  \item in chimneys on east TPC (\TPC{WE} and \TPC{EE}):
-    \begin{itemize}
-      \item flat cables from 1 to 9 are connected to wires on the \emph{second induction plane}
-      \item flat cables from 10 to 18 are connected to wires on the \emph{collection plane}
-    \end{itemize}
 \end{itemize}
+On the other hand, the connectivity tests measurements described in \cite{SBNDocDBxxxx:ConnTest} and \cite{SBNDocDB14316} suggest that this assignment depends on the TPC:
+\begin{itemize}
+ \item In chimneys on West TPCs (\TPC{WW} and \TPC{EW}):
+  \begin{itemize}
+      \item flat cables from 1 to 9 are connected to wires on the \emph{collection plane}
+       \item flat cables from 10 to 18 are connected to wires on the \emph{second induction plane}
+  \end{itemize}
+\item In chimneys on East TPCs (\TPC{WE} and \TPC{EE}):
+  \begin{itemize}
+      \item flat cables from 1 to 9 are connected to wires on the \emph{second induction plane}
+       \item flat cables from 10 to 18 are connected to wires on the \emph{collection plane}
+  \end{itemize}
+\end{itemize}
+This ambiguity is being investigated; it is likely to be fully solved only by looking at real data.
 
 

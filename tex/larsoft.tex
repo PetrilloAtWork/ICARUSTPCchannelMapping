@@ -19,11 +19,12 @@ it becomes easier to use the readout concept in LArSoft geometry,
 with each of the \emph{TPC sets}, groups of TPC objects, becoming the closest
 representation to the physical TPCs, and likewise the \emph{readout planes} being
 the representation closest to physical wire planes.}.
-This section describes these LArSoft geometry entities (see also \cref{fig:LArSoftLabels})
+This section describes the geometry components that LArSoft organizes the detector in
+(see also \cref{fig:LArSoftLabels})
 and then how LArSoft logical channel IDs are associated to physical wires.
 \begin{figure}[p]
   \begin{center}
-    \includegraphics[height=0.90\textheight]{figures/LArSoftLabels}
+    \includegraphics[height=0.8\textheight]{figures/LArSoftLabels}
   \end{center}
   \caption{
     Illustation of detector elements labels and reference frame in LArSoft.
@@ -114,18 +115,13 @@ This translates into the mapping in \cref{table:LArSoftChannels}, summarised als
   \end{tabular}
   \label{tab:LArSoftChannelsReduced}
 \end{center}
+
 In total, \textbf{55296 channel IDs} are assigned,
 \textbf{53248 of which are connected to TPC wires}.
-The rest includes 1024 wireless channels, 512 ghost channels and
-512 virtual channels.
-
-Within each readout plane, the order of the channels
-and the order of the wire numbers from the hardware database are the same.
-Therefore, $\textnormal{wire number} = \textnormal{LArSoft channel ID} - \Delta_{ROP}$,
+The rest includes 1024 wireless channels, 512 ghost channels and512 virtual channels.Within each readout plane, the order of the channels and the order of the wire numbers from the hardware database are the same. Therefore, $\textnormal{wire number} = \textnormal{LArSoft channel ID} - \Delta_{ROP}$,
 where the offset $\Delta_{ROP}$ matches the value
 of the ``from'' column of the table above.
-This offset can be retrieved in LArSoft from the geometry service provider via
-\texttt{geo::GeometryCore::FirstChannelInROP()}.
+This offset can be retrieved in LArSoft from the geometry service provider via \texttt{geo::GeometryCore::FirstChannelInROP()}.
 
 
 \begin{sidewaystable}
